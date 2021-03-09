@@ -1,0 +1,8 @@
+{
+  "name": "wells-score-calculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "1bfe87f9"
+}
