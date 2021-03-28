@@ -1,17 +1,81 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="ion-text-center">
     <ion-title>
-      Tab 1
+      Wells Score for DVT
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-item class="color11">
+    <ion-text>
+      <p>Calculates risk of DVT based on clinical criteria.</p>
+    </ion-text>
+  </ion-item>
+  <ion-card class="color1">
+    <ion-card-content>
+      <ion-item class="color11" (ionChange)="checks()">
+        <ion-text position="stacked">Active cancer</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria1"></ion-toggle>
+      </ion-item>
+      <p><i>Treatment or palliation within 6 months</i></p>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item class="color11">
+        <ion-text position="stacked">Bedridden or major surgery</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria2" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+      <p><i>Bedridden recently >3 days or major surgery within 12 weeks</i></p>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Calf swelling >3 cm compared to the other leg</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria3" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+      <p><i>Measured 10 cm below tibial tuberosity</i></p>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Collateral (nonvaricose) superficial veins present</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria4" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Entire leg swollen</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria5" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Localized tenderness along the deep venous system</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria6" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Pitting edema, confined to symptomatic leg</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria7" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Paralysis, paresis, or recent plaster immobilization of the lower extremity</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria8" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Previously documented DVT</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria9" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Alternative diagnosis to DVT as likely or more likely</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria10" ion-change (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+      </ion-card-content>
+</ion-card>
+<ion-card class="color1">
+  <ion-card-content>
+    <ion-item class="color1">
+      <ion-text>Wells score: {{ score }} points</ion-text>
+    </ion-item>
+    <ion-item class="color1">
+      <ion-text>{{classification}}</ion-text>
+    </ion-item>
+    </ion-card-content>
+</ion-card>
 </ion-content>

@@ -1,17 +1,50 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="ion-text-center">
     <ion-title>
-      Tab 2
+      DASH Score for VTE
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-item class="color11">
+    <ion-text>
+      <p>Predicts likelihood of recurrence of first Venous Thromboembolism (VTE).</p>
+    </ion-text>
+  </ion-item>
+  <ion-card class="color1">
+    <ion-card-content>
+      <ion-item class="color11" (ionChange)="checks()">
+        <ion-text position="stacked">D-dimer abnormal</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria1"></ion-toggle>
+      </ion-item>
+      <p><i>Measured ~1 month after stopping anticoagulation</i></p>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-item class="color11">
+        <ion-text position="stacked">Age ≤50 years</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria2" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Male patient</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria3" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="color11">
+        <ion-text position="stacked">Hormone use at VTE onset (if female)</ion-text>
+        <ion-toggle slot="start" [(ngModel)]="criteria4" (ionChange)="checks()"></ion-toggle>
+      </ion-item>
+      <p><i>If male patient, select "No"</i></p>
+      </ion-card-content>
+</ion-card>
+<ion-card class="color1">
+  <ion-card-content>
+    <ion-item class="color1">
+      <ion-text>DASH score: {{ score }} points</ion-text>
+    </ion-item>
+    <ion-item class="color1">
+      <ion-text>{{classification}}</ion-text>
+    </ion-item>
+    </ion-card-content>
+</ion-card>
 </ion-content>
